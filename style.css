@@ -89,6 +89,12 @@ body {
   transform: translateY(-2px);
 }
 
+/* ---------- Main Container ---------- */
+main {
+  width: 100%;
+  padding: 0 16px;
+}
+
 /* ---------- Hero ---------- */
 .hero {
   display: flex;
@@ -118,8 +124,9 @@ body {
 
 .hero h2 {
   color: var(--heading);
-  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-size: clamp(1.4rem, 4vw, 2.3rem);
   margin-bottom: 4px;
+  word-break: break-word;
 }
 
 .hero p {
@@ -128,7 +135,7 @@ body {
 }
 
 .btn-primary {
-  padding: 12px 22px;
+  padding: 12px 24px;
   border: none;
   border-radius: 999px;
   background-color: var(--accent);
@@ -137,13 +144,44 @@ body {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(255, 107, 74, 0.22);
-  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
 }
 
 .btn-primary:hover {
   background-color: var(--accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 26px rgba(255, 107, 74, 0.3);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 14px 28px rgba(255, 107, 74, 0.35);
+}
+
+.btn-primary:active {
+  transform: scale(0.92);
+}
+
+/* Animasi pulse & bounce saat tombol like ditekan */
+@keyframes likePulse {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.18);
+    box-shadow: 0 0 25px rgba(255, 107, 74, 0.6);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-primary.like-animated {
+  animation: likePulse 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#counter {
+  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
 /* ---------- About & Skills ---------- */
@@ -226,41 +264,77 @@ body.dark-mode #skill-list li {
   color: #eaf1ff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .navbar {
-    padding: 16px 20px;
-  }
-
-  .navbar .logo {
-    font-size: 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    text-align: center;
   }
 
   .navbar-actions {
-    gap: 8px;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
   }
 
   .member-nav {
-    gap: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
   }
 
   .member-link {
-    padding: 6px;
-    font-size: 0.68rem;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    background-color: rgba(0, 0, 0, 0.04);
   }
 
-  .btn-toggle {
-    padding: 9px 12px;
-    font-size: 0.78rem;
+  body.dark-mode .member-link {
+    background-color: rgba(255, 255, 255, 0.06);
   }
 
   .hero {
-    margin: 28px 16px 24px;
-    padding: 36px 20px;
+    margin: 32px auto 20px;
+    padding: 36px 18px;
+    border-radius: 20px;
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
   }
 
   .about,
   .skills {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-bottom: 18px;
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 14px 12px;
+  }
+
+  .member-link {
+    width: 100%;
+    text-align: center;
+    font-size: 0.82rem;
+  }
+
+  .btn-toggle {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 240px;
   }
 }
