@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+:root {
+  --background: #eef3f8;
+  --surface: rgba(255, 255, 255, 0.82);
+  --text: #172033;
+  --muted: #68758a;
+  --heading: #243b64;
+  --accent: #ff6b4a;
+  --accent-dark: #e95335;
+  --border: rgba(255, 255, 255, 0.75);
+  --shadow: 0 24px 60px rgba(40, 61, 92, 0.14);
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef3f8 0%, #dce8f3 52%, #f8eee7 100%);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px clamp(20px, 6vw, 88px);
+  background: rgba(255, 255, 255, 0.62);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+}
+
+.navbar .logo {
+  color: var(--heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.member-nav {
+  display: flex;
+  gap: 6px;
+}
+
+.member-link {
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  border-radius: 10px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.member-link:hover,
+.member-link.active {
+  background-color: rgba(255, 107, 74, 0.12);
+  color: var(--accent-dark);
+}
+
+.btn-toggle {
+  padding: 10px 16px;
+  border: 1px solid rgba(36, 59, 100, 0.12);
+  border-radius: 999px;
+  background-color: var(--heading);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-toggle:hover {
+  background-color: #345488;
+  transform: translateY(-2px);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 760px;
+  margin: 56px auto 36px;
+  padding: 48px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.avatar {
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  border: 5px solid #ffffff;
+  outline: 3px solid var(--accent);
+  box-shadow: 0 12px 26px rgba(255, 107, 74, 0.26);
+}
+
+.hero h2 {
+  color: var(--heading);
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  margin-bottom: 4px;
+}
+
+.hero p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255, 107, 74, 0.22);
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(255, 107, 74, 0.3);
+}
+
+/* ---------- About & Skills ---------- */
+.about,
+.skills {
+  max-width: 760px;
+  margin: 0 auto 24px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(40, 61, 92, 0.08);
+}
+
+.about h3,
+.skills h3 {
+  margin-bottom: 8px;
+  color: var(--heading);
+  font-size: 1.05rem;
+}
+
+.about p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+#skill-list {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#skill-list li {
+  background-color: #e5edf6;
+  color: var(--heading);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 12px 16px 28px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Dark Mode ---------- */
+body.dark-mode {
+  --background: #151d2b;
+  --surface: rgba(27, 39, 58, 0.88);
+  --text: #f5f6fa;
+  --muted: #aebbd0;
+  --heading: #eaf1ff;
+  --border: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #151d2b 0%, #24324a 55%, #342a32 100%);
+  color: var(--text);
+}
+
+body.dark-mode .navbar {
+  background-color: rgba(21, 29, 43, 0.72);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .btn-toggle {
+  background-color: #f5f6fa;
+  color: #1e272e;
+}
+
+body.dark-mode .about,
+body.dark-mode .skills {
+  background: var(--surface);
+}
+
+body.dark-mode #skill-list li {
+  background-color: #30415c;
+  color: #eaf1ff;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .navbar .logo {
+    font-size: 1rem;
+  }
+
+  .navbar-actions {
+    gap: 8px;
+  }
+
+  .member-nav {
+    gap: 2px;
+  }
+
+  .member-link {
+    padding: 6px;
+    font-size: 0.68rem;
+  }
+
+  .btn-toggle {
+    padding: 9px 12px;
+    font-size: 0.78rem;
+  }
+
+  .hero {
+    margin: 28px 16px 24px;
+    padding: 36px 20px;
+  }
+
+  .about,
+  .skills {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
