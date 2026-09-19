@@ -5,7 +5,7 @@ DevCard adalah aplikasi kartu profil digital interaktif yang dirancang untuk men
 ---
 
 ## Visualisasi
-
+https://ivriel.github.io/project-gitready-bncc-2026/
 
 ---
 
